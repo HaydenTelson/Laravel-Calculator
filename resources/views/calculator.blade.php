@@ -28,12 +28,10 @@
 
             #input-section {
                 width: 100% !important;
-                background-color: white;
             }
 
             #input-fields {
                 text-align: center;
-                background-color: white;
             }
 
             #input-line {
@@ -48,7 +46,6 @@
                 padding-top: 100px;
                 text-align: center;
                 text-decoration: underline;
-                background-color: white;
             }
 
             #history-table {
@@ -60,6 +57,7 @@
                 padding-bottom: 50px;
 
             }
+            
             th {
                 text-align: center;
                 border: 1px solid black;
@@ -89,35 +87,21 @@
                 border: 1px solid black;
             }
 
-            #operations-label
+            #operations-label, #operator-value
             {
                 text-align: center;
             }
 
-            #firstNumber
+            #firstNumber, #secondNumber
             {
                 text-align: center;
                 border: 1px solid black;
             }
 
-            #secondNumber
-            {
-                text-align: center;
-                border: 1px solid black;
-            }
-            #operator-value
-            {
-                text-align: center;
-                background-color: white;
-            }
-            tr
+            tr, td
             {
                 border: 1px solid black;
-            }
-            td
-            {
-                border: 1px solid black;
-            }      
+            }    
         </style>
     
     </head>
@@ -149,23 +133,11 @@
                         <label for="secondNumber"> Enter the First Number: </label>
                         <input type="text" id="secondNumber" name="secondNumber" required>
                     </div>
-
-                    {{-- <div id="input-line">
-                        <label for="operations" id="operations-label">Select the Operation to Use: </label>
-                        <select name="operators" id="operations" required>
-                            <option id="operator-value" value="" selected=""> --None-- </option>
-                            <option id="operator-value" value="Add">+</option>
-                            <option id="operator-value" value="Subtract">-</option>
-                            <option id="operator-value" value="Divide">/</option>
-                            <option id="operator-value" value="Multiply">*</option>
-                        </select>
-                    </div> --}}
                 </div>
 
                 <div id="calculate-button-section">
                     <button id="calculate-button" type="submit">Calculate!</button>
                 </div>
-            
             </form>
             
             <div id="results-div">
@@ -178,8 +150,6 @@
 
         </div>
 
-
-
         <div id="history-section">
             <h2>Previous Calculations</h2>
 
@@ -189,7 +159,6 @@
                     <th>Operation</th>
                     <th>Second Number</th>
                     <th>Result</th>
-                    {{-- <th>Created On</th> --}}
                 </tr>
                 
                 @foreach ($resultHistory as $resultHistoryRecord)
@@ -198,11 +167,9 @@
                     <td>{{$resultHistoryRecord->operator}}</td>
                     <td>{{$resultHistoryRecord->secondNumber}}</td>
                     <td>{{$resultHistoryRecord->result}}</td>
-                    {{-- <td>{{$resultHistoryRecord->created_at}}</td> --}}
                     </tr>
                 @endforeach
             </table>
-
         </div>
     </body>
 </html>
