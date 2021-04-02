@@ -57,7 +57,7 @@
                 padding-bottom: 50px;
 
             }
-            
+
             th {
                 text-align: center;
                 border: 1px solid black;
@@ -109,6 +109,15 @@
         <div id="input-section">
             <h1>My Calc</h1>
 
+            <div id="results-div">
+                @if(session('answer'))
+                <div class="alert alert-success" id="results-box">
+                    <h1>{{session('answer')}}</h1>
+                </div>
+                @endif
+            </div>
+
+
             <form method="POST" action="/calculate">
             {{ csrf_field() }}
                 
@@ -139,15 +148,6 @@
                     <button id="calculate-button" type="submit">Calculate!</button>
                 </div>
             </form>
-            
-            <div id="results-div">
-                @if(session('answer'))
-                <div id="results-box">
-                    <h1>{{session('answer')}}</h1>
-                </div>
-                @endif
-            </div>
-
         </div>
 
         <div id="history-section">
